@@ -5,3 +5,9 @@ def test_home():
     response = app.test_client().get("/")
     assert response.status_code == 200
     assert response.json["message"] == "Github CI/CD Actions"
+
+
+def test_info():
+    response = app.test_client().get("/info")
+    assert response.status_code == 200
+    assert response.json["version"] == "1.0"
